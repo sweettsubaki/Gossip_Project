@@ -1,0 +1,87 @@
+body{
+    text-align:center;
+    background-color:blanchedalmond;
+    font-family:Oswald
+}
+
+.navbar-brand
+{
+    font-family: Lobster;
+    
+}
+.navbar-text span
+{
+    color:white
+}
+h1 
+{
+    text-align: center;
+}
+h2
+{
+    padding:20px;
+    margin-bottom: 30px;
+}
+ul 
+{
+   
+    text-align: center;
+    list-style:none;
+}
+
+.name
+
+{
+    padding-top:10px;
+    font-style:italic;
+    text-transform: capitalize;
+    color:steelblue
+}
+
+form
+{
+    text-align:center;
+    padding-top:30px;
+}
+
+p 
+{
+    padding-top:20px;
+    text-align:center;
+}
+
+.tgp
+
+{
+    color:mediumvioletred
+}
+
+.card{
+    background-color: black;
+    color:blanchedalmond;
+    margin:20px;
+    font-family:Oswald
+}
+
+.card-text-title
+{
+    font-family: Lobster;
+    font-size:20px
+}
+
+.tgp
+{
+    font-family: Lobster; 
+}
+
+.author
+{
+    font-family: Lobster; 
+}
+
+.username
+{
+    color:white;
+    font-size:18px;
+    margin-bottom:18px
+}

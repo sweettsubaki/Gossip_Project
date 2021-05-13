@@ -1,0 +1,3 @@
+class TagJoinGossip < ApplicationRecord
+
+end

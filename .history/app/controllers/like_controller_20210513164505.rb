@@ -1,0 +1,12 @@
+class LikeController < ApplicationController
+    before_action :find_post
+    def create
+      @gossip.likes.create(user_id: current_user.id)
+      redirect_to welcome_index_path(@gossip)
+    end
+    private
+    def find_post
+      @gossip = Gossip.find(params[:post_id])
+    end
+  end
+end

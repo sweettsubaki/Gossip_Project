@@ -1,0 +1,25 @@
+<h1>Bienvenue<p class="name"><%= @user %> </p> sur <p class="tgp">The Gossip Project</p> </h1>
+
+<h2>Voici tout les potins :</h2>
+
+
+
+<% @gossips.each_with_index do |gossip| %>
+<div class="container">
+  <div class="card text-center">
+  
+  <div class="card-body">
+    <h5 class="card-title">Potin n°<%= gossip.id %></h5>
+    <p class="card-text">Potin de <%= gossip.user.first_name %></p>
+    <p class="card-text-title">Titre : <%= gossip.title %></p>
+    <a href="gossip/<%= gossip.id %>" class="btn btn-dark">Voir le potin</a>
+    <%if current_user != nil%>
+						<a href="gossip/<%= gossip.id %>/edit" class="btn btn-dark">Editez le potin</a>
+						 <% end %>
+  </div>
+</div>
+  </div>
+
+
+
+<% end%>

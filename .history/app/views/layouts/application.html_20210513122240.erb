@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Gossip Project</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200;300;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Lobster&family=Oswald:wght@200;300;500;600;700&display=swap" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head> 
+
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" <%= link_to "The Gossip Project", welcome_index_path %></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" <%= link_to "Team", team_path %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  <%= link_to "Contact", contact_path %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  <%= link_to "Ville"%></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  <%= link_to "Ajouter un GOSSIP", new_gossip_path %></a>
+      </li>
+     
+      <li class="nav-item">
+        <a class="nav-link"  <%= link_to "INSCRIPTION", new_user_path %></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link"  <%= link_to "CONNEXION", sessions_new_path %></a>
+      </li>
+      
+    </ul>
+    <span class="navbar-text">
+  </div>
+</nav>
+
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+    <%= yield %>
+    
+    </div>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<h2>Auteur du gossip : <p class="author"><%= Gossip.find(@id).user.first_name %></p></h2>
+
+<h2>Titre : <p class="author"><%= Gossip.find(@id).title %></p></h2>
+
+
+<h2>Contenu : <p class="author"><%= Gossip.find(@id).content %></p></h2>
+
+<h2>Ville: <a href = "<%=city_path(Gossip.find(@id).user.city.id)%>"><%= Gossip.find(@id).user.city.city_name %></a></h2>
+
+
+<a href="/user/<%= Gossip.find(@id).user_id %>" class="btn btn-dark">Voir le profil de l'auteur</a>
+
+<a href="/gossip/<%= Gossip.find(@id).id%>/edit" class="btn btn-dark">Modifier le potin</a>
+
+<a href="/gossip/<%= Gossip.find(@id).id%>" class="btn btn-danger" data-confirm="Voulez-vous vraiment supprimer le potin ?" data-method="DELETE">Supprimer le potin</a>
+
+<h3> ESPACE COMMENTAIRES </h3>
+
+<a href="/gossip/<%= Gossip.find(@id).id%>/edit" class="btn btn-dark">Créer commentaire</a>
+
+<div class="container">
+
+     
+<%# FORMULAIRE %>
+                <%= form_tag(gossip_comments_path(@id), method: "post") do %>
+                    <%= text_field_tag 'gossip_id', @id, type: 'hidden', class: 'form-control' %>
+                    <div class="form-group">
+                        <%= label_tag 'Nouveau commentaire' %>
+                        <%= text_area_tag 'content', '', required: true, class: 'form-control' %>
+                    </div>
+                    <%= submit_tag "Envoyer", class: 'btn btn-outline-primary btn-sm' %>
+                <% end %>
+                
+
+
+
+

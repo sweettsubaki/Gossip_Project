@@ -1,0 +1,21 @@
+
+<h1> Ville : <%= @city.city_name %> </h1>
+<h2> Code Postal : <%= @city.zip_code %> </h2>
+
+
+<% @gossips_select_by_id.each_with_index do |gossip| %>
+<div class="container">
+  <div class="card text-center">
+  
+  <div class="card-body">
+    <h5 class="card-title">Potin n°<%= gossip.id %></h5>
+    <p class="card-text">Potin de <%= gossip.user.first_name %></p>
+    <p class="card-text-title">Titre : <%= gossip.title %></p>
+    <a href="http://localhost:3000/gossip/<%= gossip.id %>" class="btn btn-dark">Voir le potin</a>
+  </div>
+</div>
+  </div>
+
+
+
+<% end%>

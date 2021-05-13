@@ -1,0 +1,60 @@
+<h2>Auteur du gossip : <p class="author"><%= Gossip.find(@id).user.first_name %></p></h2>
+
+<h2>Titre : <p class="author"><%= Gossip.find(@id).title %></p></h2>
+
+
+<h2>Contenu : <p class="author"><%= Gossip.find(@id).content %></p></h2>
+
+<h2>Ville: <a href = "<%=city_path(Gossip.find(@id).user.city.id)%>"><%= Gossip.find(@id).user.city.city_name %></a></h2>
+
+
+<a href="/user/<%= Gossip.find(@id).user_id %>" class="btn btn-dark">Voir le profil de l'auteur</a>
+
+<a href="/gossip/<%= Gossip.find(@id).id%>/edit" class="btn btn-dark">Modifier le potin</a>
+
+<a href="/gossip/<%= Gossip.find(@id).id%>" class="btn btn-danger" data-confirm="Voulez-vous vraiment supprimer le potin ?" data-method="DELETE">Supprimer le potin</a>
+
+<h3> ESPACE COMMENTAIRES </h3>
+
+<a href="/gossip/<%= Gossip.find(@id).id%>/edit" class="btn btn-dark">Créer commentaire</a>
+
+<div class="container">
+
+     
+<%= form_tag gossip_comments_path(controller: :comments, action: :create, gossip_id: @gossip.id), method: "post" do %>
+		<%= label_tag 'Content' %>
+		<%= text_area_tag 'content', @comment.content, class: "form-control" %>
+		<br/>
+		
+		<%= submit_tag "Add comment", class: "btn btn-primary mb-5" %> 
+		<% end %>
+
+		<!-- On récupère les commentaires et on les affiche -->
+		<div class="list-group mx-auto">
+
+			<% @gossip.comments.reverse.each do |comment| %>
+
+			<div class="list-group-item mb-2">
+				<div class="row">
+					<div class="col-9">
+						<p class="mb-1"><%= comment.content %></p>
+
+						<!-- On affiche le nom de l'utilisateur qui a écrit le commentaire -->
+						<small>by <%= "#{comment.user.first_name} #{comment.user.last_name}" %>
+						</small>
+					</div>
+					<div class="col-3 text-right">
+						<small><%= link_to "Edit", edit_gossip_comment_path(@gossip.id, comment.id) %></small>
+					</div>
+				</div>
+			</div>
+
+			<% end %>
+		</div>
+
+    <%end%>
+
+
+
+
+

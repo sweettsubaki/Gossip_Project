@@ -1,11 +1,12 @@
 class UserController < ApplicationController
+  
   def show
     @id = params[:id]
   end
 
   def new
     @id = User.new
-end
+  end
 
   def create
     @id = User.new()
@@ -20,10 +21,8 @@ end
     else
       flash[:danger] = "Il y a eu une erreur lors de votre inscription : #{@id.errors.full_messages.join(" , ")}"
       render new_user_path
-
-
     end
-end
+    
+  end
 
-   
 end

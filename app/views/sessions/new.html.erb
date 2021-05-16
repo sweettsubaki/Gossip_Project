@@ -7,6 +7,8 @@
       <%= password_field_tag 'password' %>
       <br /> <br />
 
+      <%= check_box_tag(:remember_me) %>
+      <%= label_tag(:remember_me, "Mémoriser mes identifiants") %>
 
       <%= submit_tag "Se connecter" %> 
     <% end %>

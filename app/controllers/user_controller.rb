@@ -11,7 +11,7 @@ class UserController < ApplicationController
   def create
     @id = User.new()
 
-    user_params = params.permit(:first_name, :last_name, :email, :age, :city_id, :password, :description)
+    user_params = params.permit(:first_name, :last_name, :email, :age, :password, :description)
    
     @id = User.new(user_params)
     
